@@ -10,6 +10,11 @@ package cn.osbullshit.struts2.action;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import cn.osbullshit.struts2.domain.User;
 import cn.osbullshit.struts2.service.UserService;
 
@@ -44,12 +49,22 @@ public class LoginProAction  implements Action{
 	public String execute() throws Exception {
 		UserService service = new UserService();
 		Integer id = service.volidateLogin(user);
+		
+		//访问 servletAPI 两种方式  
+		//1.伪访问
 		ActionContext actCtx = ActionContext.getContext();
 		Map<String,Object> map = actCtx.getSession();
 		Map<String,Object> application  = actCtx.getApplication();
+		map.put("userId", "12312312");
+		application.put("userName", "zhangbaoqi");
+		
+		//2.真访问,会造成代码污染，但有时迫不得已，比如数据加入cookie
+		HttpServletResponse response = ServletActionContext.getResponse();
+		Cookie cookie = new Cookie("userAge","gudaya");
+		cookie.setMaxAge(200000);
+		response.addCookie(cookie);
 		if(id > 0 ) {
-			map.put("userId", "12312312");
-			application.put("userName", "zhangbaoqi");
+		
 			return SUCCESS;
 		}
 		return ERROR;
