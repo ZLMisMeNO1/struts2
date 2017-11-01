@@ -11,6 +11,7 @@ package cn.osbullshit.struts2.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import cn.osbullshit.struts2.domain.User;
 
@@ -30,6 +31,7 @@ public class UserService {
 	static {
 		userdb = new ArrayList<User> ();
 		userdb.add(new User(1,"admin","123",new Date(),23.4d));
+		userdb.add(new User(2,"zhang","456",new Date(),343.4d));
 	}
 
 	public Integer volidateLogin(User user) {
@@ -39,6 +41,15 @@ public class UserService {
 			}
 		}
 		return -1;
+	}
+
+	public void registUser(User user) {
+		user.setId(new Random().nextInt(99999));
+		userdb.add(user);
+	}
+
+	public List<User> getAllUsers() {
+		return userdb;
 	}
 }
  

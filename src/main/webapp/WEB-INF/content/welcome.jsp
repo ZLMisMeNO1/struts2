@@ -7,7 +7,7 @@
 <title>欢迎</title>
 </head>
 <body>
-<h1>欢迎登录</h1>
-
+<h1>欢迎登录${session.userId},${applicationScope.userName }</h1>
+<a href="${pageContext.request.contextPath}/viewUsers">列出所有用户</a>
 </body>
 </html>
