@@ -6,14 +6,14 @@
  * 
  */  
   
-package cn.osbullshit.struts2.service;  
+package cn.osbullshit.struts2.user.service;  
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import cn.osbullshit.struts2.domain.User;
+import cn.osbullshit.struts2.user.domain.User;
 
 /** 
  * ClassName:UserService 

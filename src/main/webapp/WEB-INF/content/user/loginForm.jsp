@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>注册页面</title>
+<title>用户的登录</title>
 </head>
 <body>
-<h1>注册页面</h1>
-<form action="registPro" method="post">
+<h1>用户登录</h1>
+
+<form action="user/loginPro" method="post">
 	用户名：<input type="text" name="user.name"/>
-	密码：<input type="text" name="user.pass"/>
-	体重：<input type="text" name="user.weight"/>
-	生日：<input type="text" name="user.birth"/>
-	<input type="submit" value="注册"/>
+	密码：<input type="password" name="user.pass"/>
+	<input type="submit" value="登录">
 </form>
 </body>
 </html>

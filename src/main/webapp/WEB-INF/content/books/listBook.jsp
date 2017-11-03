@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>欢迎</title>
+<title>添加图书</title>
 </head>
 <body>
-<h1>欢迎登录${session.userId},${applicationScope.userName }</h1>
-<h2>cookie : ${cookie.userAge.value}</h2>
-<a href="${pageContext.request.contextPath}/viewUsers">列出所有用户</a>
+
+<table>
+	<tr>
+		<td>id</td>
+		<td>名称</td>
+		<td>作者</td>
+	</tr>
+	<s:iterator value="books" var="b">
+		<tr><td>${b.id}</td><td>${b.name}</td><td>${b.author}</td></tr>
+	</s:iterator>
+</table>
 </body>
 </html>

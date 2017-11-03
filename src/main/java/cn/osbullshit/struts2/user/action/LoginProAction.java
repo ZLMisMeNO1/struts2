@@ -6,7 +6,7 @@
  * 
  */  
   
-package cn.osbullshit.struts2.action;  
+package cn.osbullshit.struts2.user.action;  
 
 import java.util.Map;
 
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import cn.osbullshit.struts2.domain.User;
-import cn.osbullshit.struts2.service.UserService;
+import cn.osbullshit.struts2.user.domain.User;
+import cn.osbullshit.struts2.user.service.UserService;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;

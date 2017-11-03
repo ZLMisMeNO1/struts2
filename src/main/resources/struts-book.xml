@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="books" namespace="/books" extends="struts-default">
+			<action name="addPro" class="cn.osbullshit.struts2.book.action.BookActions">
+				<result>/WEB-INF/content/books/welcomeBook.jsp</result>
+			</action>
+			<action name="listBooks" class="cn.osbullshit.struts2.book.action.BookActions"
+			 method="listBooks">
+				<result>/WEB-INF/content/books/listBook.jsp</result>
+			</action>
+			
+			<action name="*" >
+				<result>/WEB-INF/content/books/{1}.jsp</result>
+			</action>
+		</package>
+	
+	</struts>

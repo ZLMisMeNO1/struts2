@@ -6,12 +6,12 @@
  * 
  */  
   
-package cn.osbullshit.struts2.action;  
+package cn.osbullshit.struts2.user.action;  
 
 import java.util.List;
 
-import cn.osbullshit.struts2.domain.User;
-import cn.osbullshit.struts2.service.UserService;
+import cn.osbullshit.struts2.user.domain.User;
+import cn.osbullshit.struts2.user.service.UserService;
 
 import com.opensymphony.xwork2.Action;
 

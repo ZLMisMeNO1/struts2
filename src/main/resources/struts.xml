@@ -3,25 +3,8 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	<struts>
-		<package name="default" namespace="/" extends="struts-default">
-			<action name="loginPro" class="cn.osbullshit.struts2.action.LoginProAction"
-				method="execute">
-				<result name="success">/WEB-INF/content/welcome.jsp</result>
-				<result name="error">/WEB-INF/content/error.jsp</result>
-			</action>
-			<action name="registPro" class="cn.osbullshit.struts2.action.LoginProAction"
-				method="regist">
-				<result name="success">/WEB-INF/content/welcome.jsp</result>
-				<result name="error">/WEB-INF/content/error.jsp</result>
-			</action>   
-			
-			<action name="viewUsers" class="cn.osbullshit.struts2.action.ViewUsersAction">
-				<result name="success">/WEB-INF/content/listUsers.jsp</result>
-			</action>
-			
-			<action name="*">
-				<result>WEB-INF/content/{1}.jsp</result>
-			</action>
-		</package>
-	
+		<constant name="devMode" value="true"></constant>
+		<!-- 模块化开发 -->
+		<include file="struts-user.xml"></include>	
+		<include file="struts-book.xml"></include>	
 	</struts>

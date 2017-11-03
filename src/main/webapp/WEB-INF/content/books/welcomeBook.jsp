@@ -4,15 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户的登录</title>
+<title>添加图书</title>
 </head>
 <body>
-<h1>用户登录</h1>
 
-<form action="loginPro" method="post">
-	用户名：<input type="text" name="user.name"/>
-	密码：<input type="password" name="user.pass"/>
-	<input type="submit" value="登录">
-</form>
+<h1>添加成功!</h1>
+<a href="${pageContext.request.contextPath}/books/listBooks">查看所有图书</a>
+
 </body>
 </html>

@@ -6,7 +6,7 @@
  * 
  */  
   
-package cn.osbullshit.struts2.domain;  
+package cn.osbullshit.struts2.user.domain;  
 
 import java.util.Date;
 
