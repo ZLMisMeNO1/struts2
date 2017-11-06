@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		
+		<!-- 
+			name:这是一个必填属性，该属性指定该包的名字，改名字是该包被其他包引用的key
+			namespace:命名空间【相当于 requestMapping()】
+			extends:该属性是一个可选属性，该属性指定该包继承其他包。继承其他包，可以继承其他包中的Action定义，
+					拦截器定义等
+			abstract:该属性是一个可选属性，他指定该包是否是一个抽象包。抽象包中不能包含Action定义。
+		
+		 -->
+		<package name="result" namespace="/result" extends="struts-default">
+			<action name="end" class="cn.osbullshit.struts2.result.ResultAction" >
+				<result>/WEB-INF/content/result/${result}.jsp</result>
+			</action>
+			<action name="*" >
+				<result>/WEB-INF/content/result/{1}.jsp</result>
+			</action>
+		</package>
+	
+	</struts>

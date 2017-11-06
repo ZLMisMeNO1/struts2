@@ -1,0 +1,82 @@
+
+
+
+处理结果的配置
+<result />元素支持的属性：
+	 -- name ：逻辑视图名，默认值是success
+	 -- type:指定物理视图资源的类型。默认值是dispatcher.与dispatcher对应的是redirect --代表重定向
+	 目前的视图资源类型可能有（视图资源不一定是jsp页面）:
+	 	--velocity
+	 	--freeMarker
+	 	--jFreeChart
+	 	--报表（jasperReports)
+	 	--XSLT
+标准的result格式：	<result name="" type="" >
+					<param></param>
+					<param></param>
+					....
+				</result>
+简化写法 ： <result name="" >url </result>
+
+常见的结果类型：     		1.chain 链式 ---Action处理完用户请求之后，抓发下一个Action继续处理,形成链式处理。
+				2.redirect 重定向
+				3.redirectAction 重定向 到一个action 
+				4.dispatcher 转发 （默认）
+				5.stream 向页面发送流 用来下载文件
+				6.plainText 向页面显示原始代码
+					<action name="viewUsers" class="cn.osbullshit.struts2.user.action.ViewUsersAction">
+						<result type="plainText">
+							<param name="location">/WEB-INF/content/user/listUsers.jsp</param>
+							<param name="charSet">UTF-8</param>
+						</result>
+					</action>
+					
+					
+两种result配置：
+	--局部结果：将<result/> 作为 <action />元素的子元素配置
+	--全局结果：将<result/> 作为<global-results />元素的子元素配置
+	* 当全部和局部冲突时，局部会覆盖全局的result。 尽量少用全局结果。
+
+不同的result类型，所需要的参数完全不同。
+常见的dispatcher结果类型，支持如下的两个参数：
+	--location ：该参数指定了该逻辑视图对应的实际视图资源。
+	--parse：该参数指定了是否允许在实际视图名字中使用OGNL表达式，默认值是true。如果设置为false，则不允许在实际视图中使用表达式。
+
+动态结果配置：
+	配置result时，可以用${1},${2}...定时实际视图位置，${1}代表第一个*号的位置,${2}代表第二个*号的位置。
+	还可以使用${属性名}的方式来指定视图资源。
+	在后面这种配置方式下。${属性名}里的属性名就是对应Action实例里的属性。而且还可以使用完全的OGNL表达式，
+	即使用如下形式： ${属性名.属性名.属性名}
+	<action name="end" class="cn.osbullshit.struts2.result.ResultAction" >
+				<result>/WEB-INF/content/result/${result212}.jsp</result>
+			</action>
+	其中result212是cn.osbullshit.struts2.result.ResultAction的属性名称。
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

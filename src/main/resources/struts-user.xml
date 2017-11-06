@@ -16,12 +16,21 @@
 			<action name="loginPro" class="cn.osbullshit.struts2.user.action.LoginProAction">
 				<result>/WEB-INF/content/user/welcome.jsp</result>
 			</action>
+		
 			<action name="registPro" class="cn.osbullshit.struts2.user.action.LoginProAction"
 				method="regist">
-				<result>/WEB-INF/content/user/loginForm.jsp</result>
+				<!--  添加完用户后，我们希望直接跳转到列出所有用户的页面 
+					指定type为chain，就说明处理完之后，转入下一个Action继续处理
+				-->
+				<result type="chain" >viewUsers</result>
+				<!-- 成功后跳转到登录页面 -->
+				<!-- <result >/WEB-INF/content/user/loginForm.jsp</result> -->
 			</action>
 			<action name="viewUsers" class="cn.osbullshit.struts2.user.action.ViewUsersAction">
-				<result>/WEB-INF/content/user/listUsers.jsp</result>
+				<result type="plainText">
+					<param name="location">/WEB-INF/content/user/listUsers.jsp</param>
+					<param name="charSet">UTF-8</param>
+				</result>
 			</action>
 			<action name="*" >
 				<result>/WEB-INF/content/user/{1}.jsp</result>
