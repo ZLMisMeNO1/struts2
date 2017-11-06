@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="dmi" namespace="/dmi" extends="struts-default">
+			<action name="DMIAction" class="cn.osbullshit.struts2.dmi.DMIAction" >
+				<result>/WEB-INF/content/user/welcome.jsp</result>
+			</action>
+			<action name="*" >
+				<result>/WEB-INF/content/dmi/{1}.jsp</result>
+			</action>
+		</package>
+	
+	</struts>

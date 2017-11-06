@@ -1,0 +1,19 @@
+动态方法调用（DMI）
+<form action="user/loginPro" method="post">
+	用户名：<input type="text" name="user.name"/>
+	密码：<input type="password" name="user.pass"/>
+	<input type="submit" value="登录">
+</form>
+以上，如果没有使用动态方法调用，此处只能看出，需要提交给哪个Action处理，无法看出提交给哪个方法。
+
+如果使用DMI，可以直接在action 增加"!方法名"的形式，
+	这样就可以指定提交某个Action的具体方法处理。在struts.xml中就可以删除具体的配置
+	
+<form action="user/loginPro!login" method="post">
+	用户名：<input type="text" name="user.name"/>
+	密码：<input type="password" name="user.pass"/>
+	<input type="submit" value="登录">
+</form>
+
+1.动态方法调用安全性不高，暴露了Action中的方法
+2.其实完全可以在Action元素中指定method属性来代替动态方法调用的功能。

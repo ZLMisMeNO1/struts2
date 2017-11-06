@@ -8,4 +8,5 @@
 		<include file="struts-user.xml"></include>	
 		<include file="struts-book.xml"></include>	
 		<include file="struts-result.xml"></include>	
+		<include file="struts-dmi.xml"></include>	
 	</struts>
