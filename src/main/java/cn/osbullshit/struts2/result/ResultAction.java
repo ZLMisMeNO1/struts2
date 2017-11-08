@@ -34,9 +34,9 @@ public class ResultAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-
+		
+		
 		return SUCCESS;
 	}
-
 }
  

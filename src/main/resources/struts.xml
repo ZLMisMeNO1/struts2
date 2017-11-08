@@ -9,4 +9,5 @@
 		<include file="struts-book.xml"></include>	
 		<include file="struts-result.xml"></include>	
 		<include file="struts-dmi.xml"></include>	
+		<include file="struts-i18n.xml"></include>	
 	</struts>

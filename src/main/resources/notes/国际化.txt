@@ -12,4 +12,71 @@ java程序国际化只要2步:
 	2.输出国际化消息的key
 
 提供国际化资源文件：
-	mess_zh_CN.properties  mess_语言_国家
+	mess_zh_CN.properties  自定义名称(BaseName)_语言_国家
+	
+国际化：为不同的国家，语言环境提供资源包。
+		如果你的国际化资源包中有非西欧字符，需要使用native2ascii命令（jdk bin目录）来处理该文件。
+		普通的国际化代码：
+				1.提供xiyangyang_zh_CN.properties 文件
+				2.代码
+				Locale local = Locale.getDefault(Locale.Category.FORMAT);
+				ResourceBundle bundle = ResourceBundle.getBundle("xiyangyang",local);
+				System.out.println(bundle.getString("hi"));
+
+struts2的国际化
+		1.支持模块化加载
+		2.支持自动加载国际化资源
+		
+国际化英文 internationalization 简写 i18n   : 因为开头是i 结束是n  中间有18个字母
+
+jsp页面的国际化：
+		1.需要手动加载国际化消息
+		
+			使用<s:i18n name="" > ..<html>...</html>..</s:i18n> name填写国际化消息中的BaseName 
+				<s:i18n name="i18n/i18nForm">
+		2.在页面使用<s:text .../>更具key来输出国家化消息
+			如果是表单标签，直接使用key属性来指定国际化消息的key
+			<s:form action="i18nPro">
+				<s:textfield name="user.name" key="name"/>
+				<s:password name="user.pass" key="pass"/>
+				<s:submit key="submitBtn"/>
+			</s:form>
+Action的国际化:
+	1.自动加载国际化消息
+		让国际化消息的baseName与Action的类名相同，而且放在同一个目录下。
+	2.	在Action中使用getText()方法（ActionSupport提供的）获取国际化消息。
+包范围的国际化：
+	1.自动加载国际化消息的。
+		让国际化消息的baseName为package(不是与包名相同)，而且放在该包的目录下。
+		---可以当该包下的所有Action共享同一个国际化资源文件。
+	2.在Action中使用getText()方法（ActionSupport提供的）获取国际化消息。
+
+全局国际化资源文件
+	1.通过一个struts.custom.i18n.resources常量来加载国际化资源文件
+	<contant name="struts.custom.i18n.resources" value="路径/BaseName"/>
+	2.全局国家资源文件，即可被Action访问，也可以被jsp访问。	
+	
+	全局国际化资源文件应该尽量少用！这样不利于项目后期的升级，维护。
+	
+Action接口与ActionSupport实现类
+	ActionSupport实现了Action接口，而且增加了输入校验支持、国际化功能等封装。
+
+ActionSupport的getText()方法：
+	假设有这样的需求，登录成功后我要提示： 欢迎您 ，XXX ,登录成功！
+	这里的xxx是个变量，假设在Action中使用username接收，那么在写国际化资源的时候就可以这么写：
+			successMsg=欢迎您，{0},登录成功！
+	这里的{0}代表getText()传的值
+	在Action中就可以这样写，
+		getText("successMsg",new String[]{username});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
