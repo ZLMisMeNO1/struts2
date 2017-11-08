@@ -1,0 +1,6 @@
+
+Struts2默认是根据浏览器的设置来选择语言、国家环境。
+
+Struts2 可以让用户选择语言环境
+	方法A.在请求路径中加入?request_locale=en_US
+
