@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	
+		<package name="exception" namespace="/exception" extends="struts-default">
+			
+			<global-results>
+				<result name="null">/WEB-INF/content/exception/null.jsp</result>
+				<result name="unknown">/WEB-INF/content/exception/unknown.jsp</result>
+			</global-results>
+			<!-- 配置全局的异常映射：
+				所谓异常映射的本职：就是为处理方法所抛出的异常类，起个名字。
+			 -->
+			<global-exception-mappings>
+				<exception-mapping result="null" exception="java.lang.NullPointerException"></exception-mapping>
+				<exception-mapping result="unknown" exception="java.lang.Exception"></exception-mapping>
+			</global-exception-mappings>
+		
+			<action name="exceptionPro" class="cn.osbullshit.struts2.exception.ExceptionAction">
+				<result name="success">/WEB-INF/content/exception/welcome.jsp</result>
+				<result name="illegal">/WEB-INF/content/exception/illegalerror.jsp</result>
+				<result name="sql">/WEB-INF/content/exception/sqlerror.jsp</result>
+				<exception-mapping result="illegal" exception="java.lang.IllegalArgumentException"></exception-mapping>
+				<exception-mapping result="sql" exception="java.sql.SQLException"></exception-mapping>
+			</action>
+			
+			<action name="*" >
+				<result>/WEB-INF/content/exception/{1}.jsp</result>
+			</action>
+			
+		</package>
+	
+	</struts>

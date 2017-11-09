@@ -1,0 +1,14 @@
+
+对于Action的处理方法而言，处理结果可有出现如下情况：
+	1.正常执行结果，会返回一个String类型逻辑视图
+	<reault name="逻辑视图名">物理资源</result>
+	2.遇到异常，返回一个异常对象
+	<exception-mapping exception="异常类" result="逻辑视图名"/>
+	
+
+Struts2设计的处理方法完全不需要处理任何异常，他可以声明抛出任意的异常。
+
+<global-results ../>标签定义全局的实际视图映射
+<global-exception-mappings ../>标签定义全局的异常映射。
+
+global-results 必须在global-exception-mappings  前定义。
