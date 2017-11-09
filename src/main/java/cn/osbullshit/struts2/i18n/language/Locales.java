@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 /** 
  * ClassName:Locales 
  * Function: TODO ADD FUNCTION. 
@@ -21,20 +23,46 @@ import java.util.Map;
  * @since    JDK 1.7 
  * @see       
  */
-public class Locales {
+public class Locales extends ActionSupport{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private  Map<String,Locale> locales;
 	
-	public Locales() {
-		
+	
+	public Map<String, Locale> getLocales() {
+		return locales;
+	}
+
+	public void setLocales(Map<String, Locale> locales) {
+		this.locales = locales;
+	}
+
+	private Locale current;
+
+	public Locale getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(Locale current) {
+		this.current = current;
+	}
+
+	@Override
+	public String execute() throws Exception {
 		locales = new HashMap<String,Locale>();
 		locales.put(Locale.CHINA.getDisplayLanguage(Locale.CHINA),Locale.CHINA);
 		locales.put(Locale.US.getDisplayLanguage(Locale.US),Locale.US);
+		locales.put(Locale.JAPAN.getDisplayLanguage(Locale.JAPAN),Locale.JAPAN);
+		locales.put(Locale.KOREA.getDisplayLanguage(Locale.KOREA),Locale.KOREA);
+		setLocales(locales);
+		return SUCCESS;
 	}
 	
-	public  Map<String,Locale> getLocales() {
-		return locales;
-	}
+	
 	
 }
  

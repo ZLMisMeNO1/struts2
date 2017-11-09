@@ -8,7 +8,11 @@
 			<action name="i18nPro" class="cn.osbullshit.struts2.i18n.I18nAction">
 				<result>/WEB-INF/content/i18n/welcome.jsp</result>
 			</action>
-		
+			
+			<action name="selectLanguage" class="cn.osbullshit.struts2.i18n.language.Locales">
+				<result>/WEB-INF/content/i18n/selectLanguage.jsp</result>
+			</action>
+			
 			<action name="*" >
 				<result>/WEB-INF/content/i18n/{1}.jsp</result>
 			</action>
