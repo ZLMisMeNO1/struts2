@@ -12,3 +12,8 @@ Struts2设计的处理方法完全不需要处理任何异常，他可以声明�
 <global-exception-mappings ../>标签定义全局的异常映射。
 
 global-results 必须在global-exception-mappings  前定义。
+
+在jsp页面可以使用
+	<s:property value="exception"/>输出异常对象本身
+	<s:property value="exception.message"/>输出异常消息
+	<s:property value="exceptionStack" /> 输出异常堆栈信息

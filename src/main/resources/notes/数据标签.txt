@@ -1,0 +1,13 @@
+
+set标签：定义一个变量，可以将变量放入指定的scope中。
+	scope:
+		--application
+		--session
+		--request
+		--page
+		--action
+	attribute:
+		--scope 默认action,放在Action中，实际放入到了request和Stack Context中
+		--value
+		--var
+	

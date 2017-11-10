@@ -1,0 +1,66 @@
+java领域的MVC：
+	1.主要是控制器开发
+	2.提供标签库，简化VIEW的开发
+	
+Struts2的标签库：
+	1.UI标签：主要用于生成HTML元素的标签。
+	2.非UI标签：主要用于数据访问、逻辑控制等的标签。
+	3.Ajax标签：用于Ajax支持的标签。
+	
+导入标签库：<%@ taglib prefix="s" uri="/struts-tags" %>
+
+struts2利用内置的OGNL表达式语言支持，大大加强了struts2的数据访问功能。
+	OGNL本职上就是表达式语言（和jsp2的el本质一样）。
+11个el内置对象：
+	pageContext
+	pageScope
+	requestScope
+	sessionScope
+	applicationScope
+	param
+	paramValues
+	header
+	headerValues
+	cookie
+	initParem--获取web应用的配置参数
+
+OGNL:
+	既然要访问数据，必须有个东西装数据，OGNL的装数据的东西叫"Stack Context(OGNL Context)"
+	  --可以理解为是一个Map;
+	  它里面的每个对象，都应该有个名字。
+	  访问方法： #对象名
+	 eg：Stack OGNL中有个三个对象：foo、bar、test、
+	 	#foo.abc.def 访问foo中abc的def的值
+	 
+	 OGNL Context有一个根(root)对象。如果我们要访问根对象的属性，可以省略对象名
+	 eg：Stack OGNL中有个三个对象：foo、bar、test，但bar是根对象。
+	 	abc.def 访问bar中abc的def的值
+
+	context map ----  --application
+					  --session
+					  --value stack(root)
+					  --request
+					  --parameters(请求参数)
+					  --attr(serches page,request ,session,then application scope)
+	
+	OGNL可以直接创建List对象：{e1,e2,e3,e4...}
+		可以直接创建Map对象：#{key1:value2,key2:value2....}
+		可以直接获取“子集合”
+			eg：person.cats.{? #this.age > 2} --获取person所养的猫中age 大于2的所有猫
+				person.cats.{^ #this.age > 2} --获取person所养的猫中age 大于2的第一个猫
+				person.cats.{$ #this.age > 2} --获取person所养的猫中age 大于2的最后一个猫	
+
+		可以直接调用静态成员：
+			需开启常量：<contant name="struts.ognl.allowStaticMethodAccess" value="true" />
+				这个常量默认是false
+			类名@静态field
+			类名@静态方法（参数值）
+
+
+
+
+
+
+
+
+
