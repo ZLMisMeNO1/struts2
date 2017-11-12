@@ -26,5 +26,33 @@
 		<li>${name}
 	</s:iterator>
 	</ul>
+	
+	<s:append var="newList" >
+		<s:param  value="{'a','b','c'}" />
+		<s:param  value="{'d','e','f'}" />
+	</s:append>
+	<ul>
+		<s:iterator var="#newList" value="#newList">
+			<li><s:property /></li>
+		</s:iterator>
+	</ul>
+		<s:merge var="newList1" >
+		<s:param  value="{'a','b','c'}" />
+		<s:param  value="{'d','e','f'}" />
+	</s:merge>
+	
+	<ul>
+		<s:iterator var="#newList1" value="#newList1">
+			<li><s:property /></li>
+		</s:iterator>
+	</ul>
+	<s:set var="sublist" value="{'a','b','c'}"></s:set>
+	<s:subset var="sublist2" source="sublist" start="0" count="1" />
+	<ul>
+		<s:iterator value="#attr.sublist2">
+			<li><s:property /></li>
+		</s:iterator>
+	</ul>
+	<s:debug/>
 </body>
 </html>
