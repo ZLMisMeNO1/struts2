@@ -4,6 +4,13 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	<struts>
 		<package name="label" namespace="/label" extends="struts-default">
+			<action name="listUsers" class="cn.osbullshit.struts2.label.ControllerLabel">
+				<result >/WEB-INF/content/label/listUsers.jsp</result>
+			</action>
+	
+			<action name="theme*" >
+				<result>/WEB-INF/content/label/UI/theme/{1}.jsp</result>
+			</action>
 			<action name="*" >
 				<result>/WEB-INF/content/label/{1}.jsp</result>
 			</action>

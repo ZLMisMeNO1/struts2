@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="token" namespace="/token" extends="struts-default">
+			
+			<action name="loginPro" class="cn.osbullshit.struts2.token.Token">
+				
+				<interceptor-ref name="token"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<result type="chain">listUsers</result>
+				<result name="invalid.token">/WEB-INF/content/token/invalid.jsp</result>
+			</action>
+			
+			<action name="listUsers" class="cn.osbullshit.struts2.token.ListUsers">
+				
+				<result>/WEB-INF/content/token/listUsers.jsp</result>
+			</action>
+			
+			
+			<action name="*" >
+				<result>/WEB-INF/content/token/{1}.jsp</result>
+			</action>
+		</package>
+	
+	</struts>

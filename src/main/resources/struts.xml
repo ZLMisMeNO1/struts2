@@ -12,4 +12,5 @@
 		<include file="struts-i18n.xml"></include>	
 		<include file="struts-exception.xml"></include>	
 		<include file="struts-label.xml"></include>	
+		<include file="struts-token.xml"></include>	
 	</struts>

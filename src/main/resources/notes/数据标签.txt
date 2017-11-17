@@ -10,4 +10,30 @@ set标签：定义一个变量，可以将变量放入指定的scope中。
 		--scope 默认action,放在Action中，实际放入到了request和Stack Context中
 		--value
 		--var
+
+action 标签：
+	该标签用于在jsp页面直接调用一个Action，通过指定executeResult参数，还可将该Action的处理结果包含到本页面中来
+	通过name和namespace确定action
+	executeResult:boolean 是否将已调用该action的页面包含到当前页面中来
+				eg: A页面调用了Action ,在B页面使用了该标签并设置executeResult为true，则A页面会嵌入到B中
+	ignoreContextParams:控制当前页面请求参数，是否传入被调的Action。
+	设置var属性会将该action放入到Stack Context 中，访问加#
+bean标签：
+	该标签用于创建一个javaBean实例。如果制定了var属性，则可以将创建的JavaBean实例放入Stack Context中
+
+date ：用于格式化一个输出日期 
+	name : 指定格式化源数据
+	format: 格式化形式
+	nice : 是否以更好的方式呈现
+
+debug：用于在页面上声称已个调试链接，当单机该连接时，可以看到当前的ValueStack和Stack Context中的内容。
+
+include : 用于包含指定的jsp页面
+
+param : 用于设置参数
+		name 
+		value
+
+push : 将表达式的值放入到value Stack Context的栈顶
+	当我们的对象很深的时候可以使用，eg：request.user.collection.age
 	

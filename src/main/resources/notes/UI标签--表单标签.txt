@@ -1,0 +1,18 @@
+
+这些标签都可以指定cssClass 、cssStyle来制定css样式
+也可以指定onXXX来绑定javascript事件
+
+
+checkbox 生成复选框
+head 引入一些辅助的css和js
+file 生成一个文件上传域
+form 表单
+hidden 隐藏域
+label 文字标签
+password 密码框
+reset 重置按钮
+submit 提交按钮
+textarea 多行文本框
+textfield 单行文本框
+checkboxlist：多选框
+select : 下拉选

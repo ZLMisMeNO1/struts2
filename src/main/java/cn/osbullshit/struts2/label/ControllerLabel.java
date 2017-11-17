@@ -8,6 +8,9 @@
   
 package cn.osbullshit.struts2.label;  
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 /** 
@@ -26,10 +29,42 @@ public class ControllerLabel extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private String admin;
+	
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+
+	private List<String> listUsers ;
+
+	public List<String> getListUsers() {
+		return listUsers;
+	}
+
+	public void setListUsers(List<String> listUsers) {
+		this.listUsers = listUsers;
+	}
+
+
 	@Override
 	public String execute() throws Exception {
-		
-		return super.execute();
+		System.out.println("被调用了");
+		listUsers = new ArrayList<String>();
+		if(admin.equals("user")) {
+			listUsers.add("武松");
+			listUsers.add("鲁智深");
+			listUsers.add("林冲");
+		} else {
+			listUsers.add("1");
+			listUsers.add("2");
+			listUsers.add("3");
+		}
+		setListUsers(listUsers);
+		return SUCCESS;
 	}
 	
 	
