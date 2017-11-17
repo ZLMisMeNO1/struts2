@@ -13,4 +13,5 @@
 		<include file="struts-exception.xml"></include>	
 		<include file="struts-label.xml"></include>	
 		<include file="struts-token.xml"></include>	
+		<include file="struts-msg.xml"></include>	
 	</struts>

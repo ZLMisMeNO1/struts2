@@ -1,0 +1,7 @@
+
+
+actionerror/actionmessage -- 它们体现的是struts2的消息机制
+	当我们需要把Action中的一段文本、传入下个页面显示时，就可借助struts2的消息机制
+	（1）Action中可通过addActionError() 或addActionMessage()来添加消息
+	（2）在页面中就可使用 <s:actionerror/>和<s:actionmessage /> 来获取消息
+fielderror:输出类型转换失败、输入校验失败后的错误提示。
