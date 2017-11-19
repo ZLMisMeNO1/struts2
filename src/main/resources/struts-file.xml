@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="file" namespace="/file" extends="struts-default">
+		
+			<action name="addPicPro" class="cn.osbullshit.struts2.file.FileUpload" >
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">img/png,image/jpeg,image/pjpeg,image/gif</param>
+					<param name="maximumSize">30000</param>
+				</interceptor-ref>
+				<result name="input">/WEB-INF/content/file/error.jsp</result>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<result type="chain">listPicts</result>
+			</action>
+			<action name="listPicts" class="cn.osbullshit.struts2.file.FileUpload" 
+				method="listPicts" >
+				<result>/WEB-INF/content/file/listPicts.jsp</result>	
+			</action>
+			<action name="*" >
+				<result>/WEB-INF/content/file/{1}.jsp</result>
+			</action>
+		</package>
+	</struts>

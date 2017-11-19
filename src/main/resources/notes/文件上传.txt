@@ -1,0 +1,24 @@
+
+
+struts2文件上传：
+	每个文件上传域，需要在Action 中提供3个field进行封装
+		1.与文件上传域的name同名的、类型为File的Field
+		2.名为 文件上传域的name + 'FileName' 、类型为String的Field
+		3.名为 文件上传域 + 'ContentType' 、类型为String的Field
+文件上传就是IO操作
+	FileInputStream fis = new FileInputStream(pict);
+		
+		FileOutputStream fos = new FileOutputStream(path + "/" + newFileName);
+		
+		
+		byte[] bs = new byte[1024];
+		int hasRead = -1;
+		while ( (hasRead =  fis.read(bs) ) != -1) {
+			fos.write(bs, 0, hasRead);
+		}
+		fis.close();
+
+文件上传过滤：
+	A：代码控制，通过File.length() 和 XXXContentType 分别来控制大小和类型。
+	B:使用fileUpload烂机器过滤，只需要配置一下就可以。
+	

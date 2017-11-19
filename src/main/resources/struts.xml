@@ -5,7 +5,7 @@
 	<struts>
 		<constant name="struts.devMode" value="true"></constant>
 		<!-- 模块化开发 -->
-		<include file="struts-user.xml"></include>	
+		<!-- <include file="struts-user.xml"></include>	 -->
 		<include file="struts-book.xml"></include>	
 		<include file="struts-result.xml"></include>	
 		<include file="struts-dmi.xml"></include>	
@@ -14,4 +14,5 @@
 		<include file="struts-label.xml"></include>	
 		<include file="struts-token.xml"></include>	
 		<include file="struts-msg.xml"></include>	
+		<include file="struts-file.xml"></include>	
 	</struts>
