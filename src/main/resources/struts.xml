@@ -17,4 +17,6 @@
 		<include file="struts-msg.xml"></include>	
 		<include file="struts-file.xml"></include>	
 		<include file="struts-down.xml"></include>	
+		<include file="struts-converter.xml"></include>	
+		<include file="struts-input.xml"></include>	
 	</struts>

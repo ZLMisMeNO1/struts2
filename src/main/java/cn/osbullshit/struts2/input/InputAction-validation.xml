@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE validators PUBLIC 
+		"-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd" >
+<validators>
+	<field name="user.name">
+		<field-validator type="requiredstring">
+			<message key="usernamerequire" />
+		</field-validator>
+	</field>
+	
+	<field name="user.pass">
+		<field-validator type="requiredstring">
+			<message>密码必填</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.height">
+		<field-validator type="requiredstring">
+			<message>身高必填</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.weight">
+		<field-validator type="requiredstring">
+			<message>体重必填</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.birth">
+		 <field-validator type="date">
+	        <param name="fieldName">birthday</param>
+	        <param name="min">01/01/1990</param>
+	        <param name="max">01/01/2000</param>
+	        <message>Birthday must be within ${min} and ${max}</message>
+   		 </field-validator>
+ 
+	</field>
+	
+</validators>

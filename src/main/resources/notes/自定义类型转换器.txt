@@ -1,0 +1,38 @@
+
+struts2支持自动转换
+  int/Integer ,char/Character , boolean/Boolean ,
+  long/Long ,float/Float,double/Double ,数组,集合以及Date
+  其中Date转换器很容易失败，原因是struts2要求日期格式必须符合用户请求所在的Locale的SHORT格式
+  
+  
+ 自定义类型转换：
+ 	在某些时候，出于一些非常极端的场景，程序需要完成如下转换：
+ 	String参数--> 自定义复合类 （eg: JavaBean）
+ 	这种转换是特定业务所要求的，因此只能使用自定义类型转换器来实现。
+ 	
+ 	(1).为了实现自定义类型转换器，需要实现一个TypeConverter接口。
+ 	但实际上，为了简化开发，推荐继承TypeConverter的实现类StrutsTypeConverter类。
+ 	
+ 	继承StrutsTypeConverter，需要实现如下两个抽象方法：
+ 		//字符串转对象  values 是请求参数
+ 		Object convertFromString(Map context,String[] values,Class toClass);
+ 		//对象转字符串
+ 		String convertToString(Map context,Object o)
+ 	(2).注册自定义类型转换器
+ 		A:注册局部转换器
+ 			增加 Action类名-conversion.properties文件，文件和Action位于同一个目录下
+ 				文件中内容  需要转换的对象=转换器所在的包名.类名
+ 		B:注册全局转换器
+ 			全局类型的转换器不对指定Action、指定属性起作用，而是对指定类型起作用，例如对所有类型为lee.User的属性起作用
+ 			在类加载路径下体用一个 xwork-conversion.properties文件，通过该文件中指定如下代码即可
+ 				类型=转换器
+ 				对所有 Action的指定类型的使用指定转换器转换
+   
+默认的defaultStack中已经包含了conversionError拦截器，当转换失败是会跳转到input逻辑视图
+并且自动输出错误提示。
+	将错误信息国际化：
+		A:增加全局国际化资源文件。
+			xwork.default.invalid.fieldvalue=转换失败，{0}是无效的
+		B:增加局部国际化资源文件。
+			invalid.fieldvalue.<属性名>=转换失败
+			eg:invalid.fieldvalue.user=您输入的信息有误！

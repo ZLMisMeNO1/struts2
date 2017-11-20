@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		
+		<package name="input" namespace="/input" extends="struts-default">
+			<action name="registPro" class="cn.osbullshit.struts2.input.InputAction" >
+				
+				<result type="chain">list</result>
+				<result name="input">/WEB-INF/content/input/regist.jsp</result>
+			</action>
+			
+			<action name="list" class="cn.osbullshit.struts2.input.InputAction" 
+			 	method="getList">
+				
+				<result >/WEB-INF/content/input/listUsers.jsp</result>
+			</action>
+			<action name="*" >
+				<result>/WEB-INF/content/input/{1}.jsp</result>
+			</action>
+		</package>
+	
+	</struts>
