@@ -1,0 +1,31 @@
+
+
+可能有人疑问：直接把文件放入到webapp下即可实现下载
+	但实际上可能存在如下问题：
+		1.当文件名中有中文字符时，就无法下载了
+		2.直接将其放在web下的话任何人都可以下载，没有安全性。
+	
+为了解决上面的问题就需要struts2的文件下载进行控制了。
+	实现文件下载的Action关键只有一条：
+		需要提供一个返回值为InputStream的getter方法，方法名任意的。
+		--该方法代表了文件下载的入口，它就是让客户下载的输入流
+
+配置下载Action: 
+<action name="downPro" class="cn.osbullshit.struts2.down.DownAction" >
+				<result type="stream">
+					<!-- 该参数指定二进制流的类型 -->
+					<param name="contentType">${resType}</param>
+					
+					<!-- 该参数指定返回InputStream的方法（去掉get后首字母小写） -->
+					<param name="inputName">target</param>
+					
+					<!-- 该参数指定下载的文件名称 -->
+					<param name="contentDisposition">filename=${resName}</param>
+					
+					<!-- 控制下载时缓冲的大小 -->
+					<param name="bufferSize">4096</param>
+				</result>		
+
+
+借助struts2的文件下载之后，所有文件下载都需要经过struts2的Action处理。
+因此Action就可以判断是否允许用户下载。

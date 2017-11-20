@@ -16,4 +16,5 @@
 		<include file="struts-token.xml"></include>	
 		<include file="struts-msg.xml"></include>	
 		<include file="struts-file.xml"></include>	
+		<include file="struts-down.xml"></include>	
 	</struts>
