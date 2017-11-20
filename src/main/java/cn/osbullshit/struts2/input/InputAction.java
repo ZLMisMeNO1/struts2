@@ -11,6 +11,8 @@ package cn.osbullshit.struts2.input;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
 
 /** 
  * ClassName:InputAction 
@@ -29,6 +31,8 @@ public class InputAction extends ActionSupport{
 		return user;
 	}
 
+	@Validations(requiredStrings={@RequiredStringValidator(fieldName="user.name",key="usernamerequire2"),
+			@RequiredStringValidator(fieldName="user.id",key="useridrequire")})
 	public void setUser(UserBean user) {
 		this.user = user;
 	}

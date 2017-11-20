@@ -10,8 +10,9 @@
 <title>自定义类型转换器</title>
 </head>
 <body>
-
+<s:fielderror></s:fielderror>
 	<s:form action="registPro" >
+		<s:textfield name="user.id" label="id"/>
 		<s:textfield name="user.name" label="用户名"/>
 		<s:textfield name="user.pass" label="密码"/>
 		<s:textfield name="user.height" label="身高"/>
