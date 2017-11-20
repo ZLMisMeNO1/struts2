@@ -20,5 +20,24 @@ struts2文件上传：
 
 文件上传过滤：
 	A：代码控制，通过File.length() 和 XXXContentType 分别来控制大小和类型。
-	B:使用fileUpload烂机器过滤，只需要配置一下就可以。
-	
+	B: 使用fileUpload烂机器过滤，只需要配置一下就可以。
+	<action name="addPicPro" class="cn.osbullshit.struts2.file.FileUpload" >
+				<!-- 文件上传过滤器 -->
+				<interceptor-ref name="fileUpload">
+					<!-- 文件允许的类型，多个类型用,区分 -->
+					<param name="allowedTypes">img/png,image/jpeg,image/pjpeg,image/gif</param>
+					<!-- 控制文件大小 --> 
+					<param name="maximumSize">30000</param>
+				</interceptor-ref>
+				<result name="input">/WEB-INF/content/file/error.jsp</result>
+				<!-- 修改了其他过滤器后要重新修改默认过滤器 -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<result type="chain">listPicts</result>
+			</action>
+	配置错误信息 ： eg：文件过大或类型不允许等
+		使用全局国际化配置文件
+			mess_zh_CN.properties:
+				struts.messages.error.content.type.not.allowed=您上传的文件类型只能是图片类型
+				struts.messages,error.file.too.large=您要上传的文本太大
+				struts.messages.error.uploading=未知错误
+		在input对应的资源文件页面中，可以使用<s:fielderror name="file"></s:fielderror>来打印错误信息

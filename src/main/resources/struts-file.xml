@@ -10,9 +10,9 @@
 					<param name="allowedTypes">img/png,image/jpeg,image/pjpeg,image/gif</param>
 					<param name="maximumSize">30000</param>
 				</interceptor-ref>
-				<result name="input">/WEB-INF/content/file/error.jsp</result>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<result type="chain">listPicts</result>
+				<result name="input">/WEB-INF/content/file/error.jsp</result>
 			</action>
 			<action name="listPicts" class="cn.osbullshit.struts2.file.FileUpload" 
 				method="listPicts" >

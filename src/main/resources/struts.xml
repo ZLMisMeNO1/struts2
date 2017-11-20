@@ -5,6 +5,7 @@
 	<struts>
 		<constant name="struts.devMode" value="true"></constant>
 		<!-- 模块化开发 -->
+		<constant name="struts.custom.i18n.resources" value="mess"></constant>
 		<!-- <include file="struts-user.xml"></include>	 -->
 		<include file="struts-book.xml"></include>	
 		<include file="struts-result.xml"></include>	

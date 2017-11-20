@@ -10,7 +10,8 @@
 </head>
 <body>
 	<s:actionmessage/>
-	<s:form action="addPicPro" enctype="multipart/form-data">
+	<s:form action="addPicPro" enctype="multipart/form-data" method="POST">
+		<s:fielderror name="file"></s:fielderror>
 		<s:file name="pict" label="选择文件" />
 		<s:submit value="提交" />
 	</s:form>

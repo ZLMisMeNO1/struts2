@@ -10,5 +10,6 @@
 </head>
 <body>
 	<h1>失败了</h1>
+	<s:fielderror name="file"></s:fielderror>
 </body>
 </html>
