@@ -1,0 +1,30 @@
+
+拦截器体系是Struts2框架的重要组成部分，我们可以吧Struts2理解成一个空容器，而大量的内建拦截器完成了该框架的大部分操作。
+比如：
+	--params拦截负责解析HTTP请求的参数，并设置Action的属性。
+	--servlet-config拦截器直接将HTTP请求中的HTTPServletRequest实例和HTTPServletResponse实例传给Action
+	--fileUpload拦截器则负责解析请求参数中的文件域。
+	
+	
+拦截器配置中，涉及到如下元素：
+	1.<interceptor name="拦截器名称" class="拦截器类" /> 注册拦截器
+	2.<interceptor-stack name="拦截器栈名" > 配置拦截器栈
+		<interceptor-ref name="已有的拦截器" />
+		</interceptor-stack>
+	3.<default-interceptor-ref name="已有拦截器或拦截器栈" />
+	
+
+自定义拦截器：
+	实现Interceptor接口，实现3个方法
+		其中String intercept(ActionInvocation invocation)方法中，可通过
+		ActionContext act = invocation.getInvocationContext();
+		//获取Session
+		Map<String,Object> session = act.getSession();
+		//当前拦截器放过去，留给下个拦截器去拦截
+		invocation.invoke();
+		
+	配置的时候可以添加参数
+		<interceptor name="downInterceptor" class="cn.osbullshit.struts2.down.DownloadInterceptor">
+					<param name=""></param>
+				</interceptor>
+		

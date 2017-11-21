@@ -9,3 +9,34 @@ struts2的输入校验完全是模块化方式进行的。
 	2.为该Action增加校验规则文件--struts2会自动加载该校验规则文件
 	3.校验规则文件的文件名为 Action类名 + -validation.xml
 		每个校验器就对应一条校验规则，校验失败时，会跳转input逻辑视图名，因此需要配置input的物理视图地址。
+		
+		
+
+页面的输入校验：
+	在<s:form/>加入validate="true"就可以校验
+	此时表单页面的输入校验无法输出国际化消息。
+	需要使用全局国际化资源文件。
+	
+有些校验器规则客户端是不支持的：
+	典型的如 fieldexpression就不支持。
+
+
+
+校验器配置风格：
+	1.字段优先的配置风格
+	2.校验器优先的配置风格
+
+校验文件的搜索规则：
+	假设系统有两个Action:BaseAction和RegistAction,则系统搜寻规则文件顺序如下：RegistAction继承BaseAction
+		1.BaseAction-validation.xml
+		2.BaseAction-别名-validation.xml
+		3.RegistAction-validation.xml
+		4.RegistAction-别名-validation.xml
+		即使找到第一个校验规则，系统还会继续搜索，不管有没有这4份文件，也不管是否找到配置文件，
+		系统总是按固定顺序搜索，累加和覆盖，后面覆盖前面的。
+		
+自定义输入校验：
+	重写ActionSupport中的validate()方法。
+	
+	在出现我们不允许的情况时，使用addFieldError(field,message)提供错误信息
+	

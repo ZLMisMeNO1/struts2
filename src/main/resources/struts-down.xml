@@ -5,7 +5,22 @@
 	<struts>
 		<package name="down" namespace="/down" extends="struts-default">
 		
+			<interceptors>
+				<interceptor name="downInterceptor" class="cn.osbullshit.struts2.down.DownloadInterceptor">
+					<param name=""></param>
+				</interceptor>
+				<interceptor-stack name="authStack">
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="downInterceptor"></interceptor-ref>
+				</interceptor-stack>
+			</interceptors>
+			
+			<!-- 如果没有配置拦截器，默认拦截器为权限控制的 -->
+			<default-interceptor-ref name="authStack" />
+			
 			<action name="downPro" class="cn.osbullshit.struts2.down.DownAction" >
+				
+			
 				<result type="stream">
 					<!-- 该参数指定二进制流的类型 -->
 					<param name="contentType">${resType}</param>
@@ -21,7 +36,8 @@
 				</result>
 			</action>
 			<action name="*" >
-				<result>/WEB-INF/content/down/{1}.jsp</result>
+				<interceptor-ref name="basicStack"/>
+				<result>/WEB-INF/content/down/{1}. </result>
 			</action>
 		</package>
 	</struts>
