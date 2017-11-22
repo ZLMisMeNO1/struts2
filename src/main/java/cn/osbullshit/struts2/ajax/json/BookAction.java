@@ -48,6 +48,17 @@ public class BookAction extends ActionSupport{
 		this.bookList = bookList;
 	}
 
+	private Book book;
+	
+	
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		BookService service = new BookService();
@@ -55,5 +66,10 @@ public class BookAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public String getOneBook() {
+		BookService service = new BookService();
+		setBook(service.getBook());
+		return SUCCESS;
+	}
 }
  

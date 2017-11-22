@@ -11,7 +11,10 @@
 			<action name="listBooksByCate" 
 				class="cn.osbullshit.struts2.ajax.json.BookAction">
 				<result type="json"/>
-				
+			</action>
+			<action name="getOneBook" class="cn.osbullshit.struts2.ajax.json.BookAction"
+					method="getOneBook">
+				<result type="json"/>
 			</action>
 			<action name="*">
 				<result>/WEB-INF/content/ajax/json/{1}.jsp</result>

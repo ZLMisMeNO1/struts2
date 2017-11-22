@@ -41,7 +41,10 @@ public class BookService {
 		list2.add(new Book(3,"钢铁","qi",39.3));
 		bookDb.put("小说类", list2);
 	}
-	
+	public Book getBook() {
+		Book b = new Book(99,"struts2","zhangbaoqi",100.3);
+		return b;
+	}
 	public List<String> listCates() {
 		List<String> list = new ArrayList<String>();
 		
