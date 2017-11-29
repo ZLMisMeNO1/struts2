@@ -21,4 +21,5 @@
 		<include file="struts-input.xml"></include>	
 		<include file="struts-ajax.xml"></include>	
 		<include file="struts-ajax-json.xml"></include>	
+		<include file="struts-datagrid.xml"></include>	
 	</struts>

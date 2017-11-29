@@ -16,6 +16,11 @@
 					method="getOneBook">
 				<result type="json"/>
 			</action>
+			
+			<action name="listAllBook" class="cn.osbullshit.struts2.ajax.json.BookAction"
+					method="listAllBooks">
+				<result type="json"/>
+			</action>
 			<action name="*">
 				<result>/WEB-INF/content/ajax/json/{1}.jsp</result>
 			</action>

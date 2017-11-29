@@ -71,5 +71,11 @@ public class BookAction extends ActionSupport{
 		setBook(service.getBook());
 		return SUCCESS;
 	}
+	
+	public String listAllBooks() {
+		BookService service = new BookService();
+		setBookList(service.getAllBooks());
+		return SUCCESS;
+	}
 }
  

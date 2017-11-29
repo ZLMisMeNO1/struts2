@@ -60,5 +60,10 @@ public class BookService {
 	public Map<String,List<Book>> getBooks() {
 		return bookDb;
 	}
+	
+	public List<Book> getAllBooks() {
+		
+		return bookDb.get("计算机类");
+	}
 }
  
